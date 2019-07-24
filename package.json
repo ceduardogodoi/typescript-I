@@ -1,0 +1,22 @@
+{
+  "name": "alurabank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ceduardogodoi/typescript-I.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ceduardogodoi/typescript-I/issues"
+  },
+  "homepage": "https://github.com/ceduardogodoi/typescript-I#readme",
+  "devDependencies": {
+    "typescript": "^2.3.2"
+  }
+}
