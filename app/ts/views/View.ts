@@ -5,7 +5,7 @@ class View<T> {
     this._elemento = document.querySelector(seletor);
   }
 
-  update(model: T) {
+  update(model: T): void {
     this._elemento.innerHTML = this.template(model);
   }
 
