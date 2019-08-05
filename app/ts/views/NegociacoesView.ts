@@ -1,7 +1,9 @@
-namespace Views {
-  export class NegociacoesView extends Views.View<Negociacoes> {
-    template(model: Negociacoes): string {
-      return `
+import { View } from "./View";
+import { Negociacoes } from "../models/Negociacoes";
+
+export class NegociacoesView extends View<Negociacoes> {
+  template(model: Negociacoes): string {
+    return `
         <table class="table table-hover table-bordered">
           <thead>
             <tr>
@@ -35,6 +37,5 @@ namespace Views {
           </tfoot>
         </table>
       `;
-    }
   }
 }
