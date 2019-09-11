@@ -1,6 +1,7 @@
 import { NegociacoesView, MensagemView } from "../views/index";
-import { Negociacoes, Negociacao, NegociacaoParcial } from "../models/index";
+import { Negociacoes, Negociacao } from "../models/index";
 import { domInject, throttle } from "../helpers/decorators/index";
+import { NegociacaoService } from "../services/index";
 
 export class NegociacaoController {
   @domInject("#data")
@@ -11,9 +12,12 @@ export class NegociacaoController {
 
   @domInject("#valor")
   private _inputValor: JQuery;
+
   private _negociacoes = new Negociacoes();
   private _negociacoesView = new NegociacoesView("#negociacoesView");
   private _mensagemView = new MensagemView("#mensagemView");
+
+  private _service = new NegociacaoService();
 
   constructor() {
     this._negociacoesView.update(this._negociacoes);
@@ -60,17 +64,11 @@ export class NegociacaoController {
       }
     }
 
-    fetch("http://localhost:8080/dados")
-      .then(res => isOk(res))
-      .then(res => res.json())
-      .then((dados: NegociacaoParcial[]) => {
-        dados
-          .map(dado => new Negociacao(new Date(), dado.vezes, dado.montante))
-          .forEach(negociacao => this._negociacoes.adiciona(negociacao));
+    this._service.obterNegociacoes(isOk).then((negociacoes: Negociacao[]) => {
+      negociacoes.forEach(negociacao => this._negociacoes.adiciona(negociacao));
 
-        this._negociacoesView.update(this._negociacoes);
-      })
-      .catch(err => console.log(err));
+      this._negociacoesView.update(this._negociacoes);
+    });
   }
 }
 
