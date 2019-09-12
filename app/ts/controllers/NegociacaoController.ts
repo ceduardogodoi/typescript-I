@@ -44,7 +44,7 @@ export class NegociacaoController {
 
     this._negociacoes.adiciona(negociacao);
 
-    imprime(negociacao, this._negociacoes, data);
+    imprime(negociacao, this._negociacoes);
 
     this._negociacoesView.update(this._negociacoes);
     this._mensagemView.update("Negociação adicionada com sucesso!");

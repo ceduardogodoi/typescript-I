@@ -43,7 +43,7 @@ System.register(["../views/index", "../models/index", "../helpers/decorators/ind
                     }
                     const negociacao = new index_2.Negociacao(data, parseInt(this._inputQuantidade.val()), parseFloat(this._inputValor.val()));
                     this._negociacoes.adiciona(negociacao);
-                    index_5.imprime(negociacao, this._negociacoes, data);
+                    index_5.imprime(negociacao, this._negociacoes);
                     this._negociacoesView.update(this._negociacoes);
                     this._mensagemView.update("Negociação adicionada com sucesso!");
                 }
