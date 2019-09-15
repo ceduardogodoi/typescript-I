@@ -22,7 +22,6 @@ System.register(["../models/index"], function (exports_1, context_1) {
                     return __awaiter(this, void 0, void 0, function* () {
                         try {
                             const response = handler(yield fetch("http://localhost:8080/dados"));
-                            console.log(response);
                             const dados = yield response.json();
                             return dados.map((dado) => new index_1.Negociacao(new Date(), dado.vezes, dado.montante));
                         }

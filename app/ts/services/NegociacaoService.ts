@@ -4,7 +4,6 @@ export class NegociacaoService {
   async obterNegociacoes(handler: HandlerFunction): Promise<Negociacao[]> {
     try {
       const response = handler(await fetch("http://localhost:8080/dados"));
-      console.log(response);
 
       const dados = await response.json();
 
